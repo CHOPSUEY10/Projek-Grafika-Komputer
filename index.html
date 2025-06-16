@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Graphics Project - Balok Sederhana</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        background: #1a1a1a;
+        color: white;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      canvas {
+        border: 2px solid #555;
+        background: #000;
+        margin: 10px;
+      }
+      .controls {
+        display: none;
+      }
+      .info {
+        background: #2196f3;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 10px 0;
+        max-width: 600px;
+        text-align: left;
+      }
+      .canvas-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .key-list {
+        margin-top: 10px;
+        padding-left: 20px;
+      }
+      .key-list li {
+        margin: 5px 0;
+      }
+      kbd {
+        background-color: #eee;
+        border-radius: 3px;
+        border: 1px solid #b4b4b4;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        color: #333;
+        display: inline-block;
+        font-family: monospace;
+        font-size: 0.85em;
+        line-height: 1;
+        padding: 2px 4px;
+        white-space: nowrap;
+      }
+      .status {
+        margin-top: 15px;
+        padding: 10px;
+        background: #444;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>3D Graphics Project - Balok Sederhana</h1>
+      <div class="info">
+        <strong>Kontrol Keyboard:</strong>
+        <ul class="key-list">
+          <li><kbd>W</kbd>/<kbd>S</kbd>: Rotasi X (Depan/Bawah)</li>
+          <li><kbd>A</kbd>/<kbd>D</kbd>: Rotasi Y (Kiri/Kanan)</li>
+          <li><kbd>R</kbd>: Reset rotasi</li>
+          <li><kbd>M</kbd>: Toggle mode (Wireframe/Hidden Surface)</li>
+        </ul>
+      </div>
+      <div class="status">
+        Mode: <span id="currentMode">Wireframe</span> | Rotasi: X=<span
+          id="rotX"
+          >20</span
+        >°, Y=<span id="rotY">15</span>°
+      </div>
+    </div>
+
+    <!-- Kontrol disembunyikan dengan CSS tetapi tetap ada di DOM -->
+    <div class="controls">
+      <div class="control-group">
+        <button onclick="rotateX(-5)">W - Rotasi X Depan</button>
+        <button onclick="rotateX(5)">S - Rotasi X Bawah</button>
+      </div>
+      <div class="control-group">
+        <button onclick="rotateY(-5)">A - Rotasi Y Kiri</button>
+        <button onclick="rotateY(5)">D - Rotasi Y Kanan</button>
+      </div>
+      <div class="control-group">
+        <button onclick="rotateZ(-5)">Q - Rotasi Z Kiri</button>
+        <button onclick="rotateZ(5)">E - Rotasi Z Kanan</button>
+      </div>
+      <div class="control-group">
+        <button class="mode-switch" onclick="toggleMode()">
+          Toggle Mode: <span id="modeText">Wireframe</span>
+        </button>
+        <button onclick="resetRotation()">Reset Rotasi</button>
+      </div>
+    </div>
+
+    <div class="canvas-container">
+      <canvas id="wireframeCanvas" width="600" height="500"></canvas>
+      <canvas
+        id="hiddenCanvas"
+        width="600"
+        height="500"
+        style="display: none"
+      ></canvas>
+    </div>
+
+    <script src="app.js">
+      
+    </script>
+  </body>
+</html>
