@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "gl-matrix": "^3.4.3",
-    "save": "^2.9.0"
-  }
-}
